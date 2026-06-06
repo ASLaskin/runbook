@@ -1,0 +1,39 @@
+name: runbook
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg17
+    container_name: runbook-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: runbook
+      POSTGRES_PASSWORD: runbook
+      POSTGRES_DB: runbook
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U runbook -d runbook']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    container_name: runbook-redis
+    restart: unless-stopped
+    command: ['redis-server', '--appendonly', 'yes']
+    ports:
+      - '6379:6379'
+    volumes:
+      - redisdata:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  pgdata:
+  redisdata:

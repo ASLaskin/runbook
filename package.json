@@ -1,0 +1,35 @@
+{
+  "name": "runbook",
+  "version": "0.0.0",
+  "private": true,
+  "description": "AI agent platform for internal IT ops — stateful LangGraph workflows, real tool-calling, human-in-the-loop approvals, and an in-app trace viewer.",
+  "packageManager": "pnpm@10.30.1",
+  "engines": {
+    "node": ">=22"
+  },
+  "type": "module",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "db:up": "docker compose up -d",
+    "db:down": "docker compose down",
+    "db:reset": "docker compose down -v",
+    "db:logs": "docker compose logs -f"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.0",
+    "@types/node": "^22.18.13",
+    "eslint": "^9.39.0",
+    "eslint-config-prettier": "^9.1.2",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.4"
+  }
+}

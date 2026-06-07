@@ -21,7 +21,10 @@
     "db:up": "docker compose up -d",
     "db:down": "docker compose down",
     "db:reset": "docker compose down -v",
-    "db:logs": "docker compose logs -f"
+    "db:logs": "docker compose logs -f",
+    "migrate": "pnpm --filter @runbook/backend run migrate",
+    "migrate:rollback": "pnpm --filter @runbook/backend run migrate:rollback",
+    "migrate:status": "pnpm --filter @runbook/backend run migrate:status"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.0",

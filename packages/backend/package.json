@@ -4,7 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "migrate": "tsx src/db/migrate.ts latest",
+    "migrate:rollback": "tsx src/db/migrate.ts rollback",
+    "migrate:status": "tsx src/db/migrate.ts status"
   },
   "dependencies": {
     "effect": "^3.10.0",

@@ -8,9 +8,12 @@
   },
   "dependencies": {
     "effect": "^3.10.0",
+    "knex": "^3.1.0",
+    "pg": "^8.13.0",
     "zod": "^3.24.0"
   },
   "devDependencies": {
+    "@types/pg": "^8.11.0",
     "tsx": "^4.20.6"
   }
 }
